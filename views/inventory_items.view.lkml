@@ -77,6 +77,12 @@ view: inventory_items {
     sql: ${TABLE}.product_retail_price ;;
   }
 
+  measure: total_retail_price {
+    type: sum
+    sql: ${product_retail_price} ;;
+    value_format: "€#,##0"
+  }
+
   dimension: product_sku {
     type: string
     sql: ${TABLE}.product_sku ;;

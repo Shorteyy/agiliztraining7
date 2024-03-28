@@ -64,6 +64,12 @@ view: products {
     sql: ${TABLE}.retail_price ;;
   }
 
+  measure: total_retail_price {
+    type: sum
+    sql: ${retail_price} ;;
+    value_format: "€#,##0"
+  }
+
   dimension: sku {
     type: string
     sql: ${TABLE}.sku ;;
@@ -76,13 +82,13 @@ view: products {
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [
-	id,
-	name,
-	distribution_centers.name,
-	distribution_centers.id,
-	inventory_items.count,
-	order_items.count
-	]
+  id,
+  name,
+  distribution_centers.name,
+  distribution_centers.id,
+  inventory_items.count,
+  order_items.count
+  ]
   }
 
 }
